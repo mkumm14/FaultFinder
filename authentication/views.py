@@ -10,7 +10,8 @@ from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
-
+def profile_view(request):
+    return render(request, 'user/user_profile.html')
 
 
 def register_view(request):
