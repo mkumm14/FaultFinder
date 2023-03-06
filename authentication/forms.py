@@ -55,31 +55,31 @@ class RegisterForm(UserCreationForm):
     helper.form_novalidate=True
     helper.layout = Layout(
         Div(
-            FloatingField('username', placeholder='Username'),
+            FloatingField('username'),
             css_class='form-floating mb-3'
         ),
         Div(
             Div(
-                FloatingField('first_name', placeholder='First Name'),
+                FloatingField('first_name'),
                 css_class='col-md-6 form-floating mb-3'
             ),
             Div(
-                FloatingField('last_name', placeholder='Last Name'),
+                FloatingField('last_name'),
                 css_class='col-md-6 form-floating mb-3'
             ),
             css_class='row'
         ),
         Div(
-            FloatingField('email', placeholder='Email'),
+            FloatingField('email'),
             css_class='form-floating mb-3'
         ),
         Div(
             Div(
-                FloatingField('password1', placeholder='Password'),
+                FloatingField('password1'),
                 css_class='col-md-6 form-floating mb-3'
             ),
             Div(
-                FloatingField('password2', placeholder='Confirm Password'),
+                FloatingField('password2'),
                 css_class='col-md-6 form-floating mb-3'
             ),
             css_class='row'

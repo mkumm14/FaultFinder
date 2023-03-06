@@ -44,7 +44,7 @@
                     <h1 class="masthead-heading mb-0">Say goodbye</h1>
                     <h2 class="masthead-subheading mb-0"> to pesky bugs with our easy-to-use tracker</h2>
                     {% if user.is_authenticated %}
-                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="{% url 'main' %}">Access Bug Tracker</a>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="{% url 'home' %}">Access Bug Tracker</a>
                     {% else %}
                     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
                     {% endif %}
