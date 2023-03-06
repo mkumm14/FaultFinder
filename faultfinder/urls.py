@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib.auth.forms import AuthenticationForm
 
 urlpatterns = [
@@ -26,3 +28,8 @@ urlpatterns = [
     path('project', include('project.urls')),
     path("", include('main.urls'))
 ]
+
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
