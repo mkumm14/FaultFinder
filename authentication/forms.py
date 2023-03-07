@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Div, Field,HTML
 from crispy_bootstrap5.bootstrap5 import FloatingField
+from django.contrib.auth.models import User
 
 class LoginForm(AuthenticationForm):
        username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'username','type': 'text', 'placeholder':'Enter username...', 'required': True}), 
@@ -46,56 +47,58 @@ class RegisterForm(UserCreationForm):
     last_name = forms.CharField(max_length=100, label='Last Name')
     email = forms.EmailField(max_length=100, label='Email')
 
-    helper = FormHelper()
-    helper.form_method = 'POST'
-    helper.attrs={
-          'novalidate': ''
-    }
-    helper.form_id = 'register-form'
-    helper.form_novalidate=True
-    helper.layout = Layout(
-        Div(
-            FloatingField('username'),
-            css_class='form-floating mb-3'
-        ),
-        Div(
-            Div(
-                FloatingField('first_name'),
-                css_class='col-md-6 form-floating mb-3'
-            ),
-            Div(
-                FloatingField('last_name'),
-                css_class='col-md-6 form-floating mb-3'
-            ),
-            css_class='row'
-        ),
-        Div(
-            FloatingField('email'),
-            css_class='form-floating mb-3'
-        ),
-        Div(
-            Div(
-                FloatingField('password1'),
-                css_class='col-md-6 form-floating mb-3'
-            ),
-            Div(
-                FloatingField('password2'),
-                css_class='col-md-6 form-floating mb-3'
-            ),
-            css_class='row'
-        )
-    )
-
-    helper.layout.append(
-        HTML('<div class="mt-4 mb-0">'
-             '<div class="d-grid">'
-             '<button type="submit" class="btn btn-primary btn-block">Create Account</button>'
-             '</div>'
-             '</div>')
-    )
+    class Meta:
+          model=User
+          fields=['username','first_name','last_name','email','password1', 'password2']
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
-        self.fields['username'].help_text = None
-        self.fields['password1'].help_text = None
-        self.fields['password2'].help_text = None
+        self.helper = FormHelper()
+        self.helper.form_method = 'POST'
+        self.helper.attrs={
+              'novalidate': ''
+        }
+        self.helper.form_id = 'register-form'
+        self.helper.form_novalidate=True
+        self.helper.layout = Layout(
+            Div(
+                FloatingField('username'),
+                css_class='form-floating mb-3'
+            ),
+            Div(
+                Div(
+                    FloatingField('first_name'),
+                    css_class='col-md-6 form-floating mb-3'
+                ),
+                Div(
+                    FloatingField('last_name'),
+                    css_class='col-md-6 form-floating mb-3'
+                ),
+                css_class='row'
+            ),
+            Div(
+                FloatingField('email'),
+                css_class='form-floating mb-3'
+            ),
+            Div(
+                Div(
+                    FloatingField('password1'),
+                    css_class='col-md-6 form-floating mb-3'
+                ),
+                Div(
+                    FloatingField('password2'),
+                    css_class='col-md-6 form-floating mb-3'
+                ),
+                css_class='row'
+            )
+        )
+
+        self.helper.layout.append(
+            HTML('<div class="mt-4 mb-0">'
+                 '<div class="d-grid">'
+                 '<button type="submit" class="btn btn-primary btn-block">Create Account</button>'
+                 '</div>'
+                 '</div>')
+        )
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
