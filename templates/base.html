@@ -29,7 +29,7 @@
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="rounded-circle" src="{{user.profile.profile_picture.url}}" width="50px" height="50px" alt="">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="object-fit-cover rounded-circle" src="{{user.profile.profile_picture.url}}" alt="">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{% url 'user-profile' %}">Settings</a></li>
