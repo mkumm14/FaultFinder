@@ -102,3 +102,9 @@ class RegisterForm(UserCreationForm):
         )
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
+
+
+class editUserForm(forms.ModelForm):
+      class Meta:
+            model=User
+            fields=['first_name','last_name','email']
