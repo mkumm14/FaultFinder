@@ -1,7 +1,12 @@
-<form hx-post="{% url 'edit-user' user.id %}" hx-target="this" hx-swap="outerHTML">
+{% load crispy_forms_tags %}
+
+<form hx-post="{% url 'edit-user' user.id %}" hx-target="this" hx-swap="outerHTML" novalidate>
     {% csrf_token %}
-{{form.as_p}}
+    {{form|crispy}}
 
 <button type="submit" class="btn btn-primary">submit</button>
+<button class="btn btn-danger" hx-get="{% url 'user-info' %}">Cancel</button>
+
+
 
 </form>

@@ -11,13 +11,16 @@ from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
+def user_info(request):
+    return render(request, 'user/partials/user-info.html')
+
 def edit_user(request, pk):
     user=User.objects.get(id=pk)
     if request.method=="POST":
         form=editUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return render(request, 'user/partials/user-info.html')
+            return redirect('user-info')
     else:
         form=editUserForm(instance=user)
     return render(request, 'user/partials/edit-user.html', {'form':form,'user':user})
