@@ -12,8 +12,7 @@
           <div class="card mb-4">
             <div class="card-body text-center">
       <img class="rounded-circle profile-pic" src="{{user.profile.profile_picture.url}}"  alt="">
-             {% include 'user/partials/username.html' with tag='h5' class="my-3" %}
-
+             <h5 class="my-3">{{user.username}}</h5>
             </div>
           </div>
           <div class="card mb-4 mb-lg-0">
