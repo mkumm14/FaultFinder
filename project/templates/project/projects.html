@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}projects{% endblock %}
+
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+        <div  class="d-flex">
+            <div>
+        <i class="fas fa-table me-1"></i>
+        Projects
+            </div>
+
+            <div  class="ms-auto ">
+                <button class="btn-sm btn-primary rounded">
+                <i class="fa-solid fa-square-plus"></i>
+                Add Project
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="projectTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Owner</th>
+                    <th>Created date</th>
+                    <th>Updated date</th>
+                    <th>Updated by</th>
+                    <th>End date</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Owner</th>
+                    <th>Created date</th>
+                    <th>Updated date</th>
+                    <th>Updated by</th>
+                    <th>End date</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
