@@ -1,0 +1,15 @@
+{% load static %}
+
+<div hx-target="this">
+    <div class='d-flex align-items-center'>
+      <div>
+        <h5 class="my-3">{% include 'user/partials/username.html' %}</h5>
+      </div>
+
+      <div class="ms-auto">
+        
+        <button class="btn-sm btn-primary" hx-get="{% url 'edit-username' user.id %}">edit</button>
+
+      </div>
+    </div>
+  </div>

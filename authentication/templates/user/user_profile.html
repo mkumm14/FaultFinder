@@ -11,7 +11,7 @@
           <div class="card mb-4">
             <div class="card-body text-center">
       <img class="rounded-circle profile-pic" src="{{user.profile.profile_picture.url}}"  alt="">
-             <h5 class="my-3">{{user.username}}</h5>
+           {% include 'user/partials/username_partial.html' %}
             </div>
           </div>
           <div class="card mb-4 mb-lg-0">

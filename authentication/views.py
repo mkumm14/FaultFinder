@@ -1,7 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
-from .forms import LoginForm,RegisterForm, editUserForm
+from .forms import LoginForm,RegisterForm, editUserForm, editUsernameForm
 from django.contrib import messages
+from django.urls import reverse
 from django.template.context_processors import csrf
 from django.http import JsonResponse
 from crispy_forms.utils import render_crispy_form
@@ -11,8 +12,34 @@ from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
+def username(request):
+    return render(request, 'user/partials/username.html')
+
+def username_partial(request,pk):
+    user=User.objects.get(id=pk)
+    return render(request,'user/partials/username_partial.html',{'user':user})
+
+
+def edit_username(request, pk):
+    user=User.objects.get(id=pk)
+    if request.method=="POST":
+        form=editUsernameForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            # return redirect( reverse('username-partial', kwargs={'pk': user.id}))
+            response=render(request, 'user/partials/username_partial.html',{'user':user})
+            response['Hx-Trigger'] = 'username-changed'
+            return response
+    else:
+        form=editUsernameForm(instance=user)
+    return render(request,'user/partials/edit-username.html',{'user':user,'form':form})
+
+
+
 def user_info(request):
     return render(request, 'user/partials/user-info.html')
+
+
 
 def edit_user(request, pk):
     user=User.objects.get(id=pk)
