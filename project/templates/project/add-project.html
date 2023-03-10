@@ -4,8 +4,9 @@
 <div class="container">
 <form novalidate>
     {% csrf_token %}
-{{form|crispy}}
+    {{form|crispy}}
 <input type="submit" class="btn btn-primary"></input>
+<a href="{% url 'projects' %}" class="btn btn-danger" >Cancel</a>
 </form>
 </div>
 {% endblock %}
