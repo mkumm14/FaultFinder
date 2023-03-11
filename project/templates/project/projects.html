@@ -32,17 +32,7 @@
                     <th>End date</th>
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Owner</th>
-                    <th>Created date</th>
-                    <th>Updated date</th>
-                    <th>Updated by</th>
-                    <th>End date</th>
-                </tr>
-            </tfoot>
+
             <tbody>
 
 
@@ -51,7 +41,7 @@
 
                 <tr>
                     <td>{{project.id}}</td>
-                    <td>{{project.title}}</td>
+                    <td><a href="{% url 'project-view' project.id %}" title="go to project">{{project.title}}</a></td>
                     <td>{{project.owner}}</td>
                     <td>{{project.created_date}}</td>
                     <td>{{project.updated_date}}</td>
@@ -65,6 +55,7 @@
 
 
             </tbody>
+            
         </table>
     </div>
 </div>
