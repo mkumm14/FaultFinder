@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Project(models.Model):
-    title=models.CharField(max_length=200)
+    title=models.CharField(max_length=50)
     description=models.TextField()
     owner=models.ForeignKey(User, on_delete=models.CASCADE)
     users=models.ManyToManyField(User, related_name='assigned_projects')

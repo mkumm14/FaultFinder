@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import addProjectForm
-
+from .models import Project
 # Create your views here.
 
 def add_project(request):
@@ -18,5 +18,6 @@ def add_project(request):
 
 
 def projects(request):
-    return render(request,'project/projects.html')
+    projects=Project.objects.filter(users=request.user)
+    return render(request,'project/projects.html',{'projects':projects})
 

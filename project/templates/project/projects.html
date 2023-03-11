@@ -6,16 +6,15 @@
 {% block content %}
 <div class="card mb-4">
     <div class="card-header">
-        <div  class="d-flex">
+        <div class="d-flex">
             <div>
-        <i class="fas fa-table me-1"></i>
-        Projects
+                <i class="fas fa-table me-1"></i>
+                Projects
             </div>
 
-            <div  class="ms-auto">
+            <div class="ms-auto">
                 <a href="{% url 'add-project' %}" class="btn-sm btn-primary rounded">
-                <i class="fa-solid fa-square-plus"></i>
-                Add Project
+                    <i class="fa-solid fa-square-plus"></i>
                 </a>
             </div>
         </div>
@@ -25,6 +24,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Title</th>
                     <th>Owner</th>
                     <th>Created date</th>
                     <th>Updated date</th>
@@ -35,6 +35,7 @@
             <tfoot>
                 <tr>
                     <th>Id</th>
+                    <th>Title</th>
                     <th>Owner</th>
                     <th>Created date</th>
                     <th>Updated date</th>
@@ -43,7 +44,26 @@
                 </tr>
             </tfoot>
             <tbody>
-                
+
+
+
+                {% for project in projects %}
+
+                <tr>
+                    <td>{{project.id}}</td>
+                    <td>{{project.title}}</td>
+                    <td>{{project.owner}}</td>
+                    <td>{{project.created_date}}</td>
+                    <td>{{project.updated_date}}</td>
+                    <td>{{project.updated_by}}</td>
+                    <td>{{project.end_date}}</td>
+                </tr>
+
+                {% endfor %}
+
+
+
+
             </tbody>
         </table>
     </div>
