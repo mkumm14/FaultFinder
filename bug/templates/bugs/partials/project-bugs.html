@@ -1,0 +1,26 @@
+<div>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>title</th>
+            <th>reporter</th>
+            <th>created date</th>
+            <th>updated date</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            {% for bug in project.bugs.all %}
+                
+                <tr>
+                    <td>{{bug.title}}</td>
+                    <td>{{bug.reporter}}</td>
+                    <td>{{bug.created_date}}</td>
+                    <td>{{bug.updated_date}}</td>
+                </tr>
+                
+            {% endfor %}
+                
+        </tbody>
+      </table>
+</div>

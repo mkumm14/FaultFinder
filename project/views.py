@@ -4,6 +4,11 @@ from .models import Project
 # Create your views here.
 
 
+
+def dashboard_data(request, pk):
+    project=Project.objects.get(id=pk)
+    return render(request, 'project/partials/dashboard_data.html', {'project':project})
+
 def dashboard(request,pk):
     project= Project.objects.get(id=pk)
     return render(request, 'project/dashboard.html',{'project': project})

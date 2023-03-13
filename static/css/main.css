@@ -11715,3 +11715,23 @@ body {
   height:200px;
   object-fit:cover
 }
+
+
+#tabs > a {
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--midBlue);
+}
+
+#tabs > a.selected {
+  background-color: #eee;
+}
+:root {
+  --midBlue: #3465a4;
+  --lightBlue: #3d72d7;
+}
+#tabs {
+  border-bottom: solid 3px #eee;
+}
