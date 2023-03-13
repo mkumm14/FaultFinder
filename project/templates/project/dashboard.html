@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+title
+{% endblock title %}
+
+
+{% block project_sidebar %}
+<div class="sb-sidenav-menu-heading"> Project</div>
+<a class="nav-link" href="{% url 'dashboard' project.id %}">
+    <div class="sb-nav-link-icon"><i class="fas fa-gauge"></i></div>
+    Dashboard
+</a>
+<a class="nav-link" href="{% url 'home' %}">
+    <div class="sb-nav-link-icon"><i class="fas fa-bug"></i></div>
+    Bugs
+</a>
+<a class="nav-link" href="{% url 'projects' %}">
+    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+    Report
+</a>
+<a class="nav-link" href="{% url 'projects' %}">
+    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+    User
+</a>
+    
+    
+{% endblock project_sidebar %}
+    
+
+
+{% block content %}
+
+
+{% endblock content %}
+    
+    
+
