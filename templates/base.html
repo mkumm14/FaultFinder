@@ -144,7 +144,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    <p class="mb-0" hx-get="{% url 'username' %}" hx-trigger="username-changed from:body">{% include 'user/partials/username.html' %}</p>
+                    <p class="mb-2" hx-get="{% url 'username' %}" hx-trigger="username-changed from:body">{% include 'user/partials/username.html' %}</p>
 
                 </div>
             </nav>
@@ -172,6 +172,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 
     <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
 
@@ -190,5 +191,6 @@
 
 
 </body>
+
 
 </html>
