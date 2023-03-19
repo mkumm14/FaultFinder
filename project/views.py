@@ -9,7 +9,7 @@ def dashboard_data(request, pk):
     project=Project.objects.get(id=pk)
     return render(request, 'project/partials/dashboard_data.html', {'project':project})
 
-def project_view(request,pk):
+def dashboard(request,pk):
     project= Project.objects.get(id=pk)
     return render(request, 'project/project-view.html',{'project': project})
 

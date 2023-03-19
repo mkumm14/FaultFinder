@@ -12,13 +12,20 @@
 
 {% block content %}
 
-<div id="tabs" hx-target="#tab-contents" _="on htmx:afterOnLoad take .selected for event.target">
-	<a hx-get="{% url 'dashboard-data' project.id %}" class="selected">Dashboard</a>
-	<a hx-get="{% url 'bugs-data' project.id %}">Bugs</a>
-	<a hx-get="#">Reports</a>
-</div>
+{% include 'project/partials/_projectnavbar.html' %}
+<div class="m-2">
+    <div class="border border-primary">
+    <p>{{project.title}}</p>
 
-<div id="tab-contents" hx-get="{% url 'dashboard-data' project.id %}" hx-trigger="load"></div>
+    </div>
+    
+    <div class=" mt-3 border border-danger">
+    <p>this is dashboard data</p>
+
+    </div>
+
+
+</div>
 
 {% endblock content %}
     
