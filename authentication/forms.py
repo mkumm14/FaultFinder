@@ -110,12 +110,7 @@ class RegisterForm(UserCreationForm):
                 'Username cannot be greater than 30 characters.')
         return username
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if User.object.filter(email=email).exists():
-            raise forms.ValidationError(
-                'A user with this email already exists.')
-        return email
+
 
 class editUserForm(forms.ModelForm):
 
