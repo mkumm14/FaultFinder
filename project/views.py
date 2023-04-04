@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import addProjectForm
 from .models import Project
+from django.core.paginator import (
+    Paginator,
+    EmptyPage,
+    PageNotAnInteger,
+)
+
 # Create your views here.
 
 
@@ -28,6 +34,20 @@ def add_project(request):
 
 
 def projects(request):
-    projects=Project.objects.filter(users=request.user)
-    return render(request,'project/projects.html',{'projects':projects})
+    
+    default_page = 1
+    page = request.GET.get('page', default_page)
+
+    projects=Project.objects.filter(users=request.user).order_by('-created_date')
+    projects_per_page = 10
+    paginator = Paginator(projects, projects_per_page)
+
+    try:
+        projects_page = paginator.page(page)
+    except PageNotAnInteger:
+        projects_page = paginator.page(default_page)
+    except EmptyPage:
+        projects_page = paginator.page(paginator.num_pages)
+
+    return render(request,'project/projects.html',{'projects':projects_page})
 
