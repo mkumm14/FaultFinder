@@ -8,6 +8,7 @@ django = "*"
 crispy-bootstrap5 = "*"
 pillow = "*"
 django-htmx = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 autopep8 = "*"
