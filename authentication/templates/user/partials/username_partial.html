@@ -1,6 +1,6 @@
 {% load static %}
 
-<div hx-target="this">
+<div hx-target="this" id="partial_username">
     <div class='d-flex align-items-center'>
       <div>
         <h5 class="my-3">{% include 'user/partials/username.html' %}</h5>
@@ -8,7 +8,7 @@
 
       <div class="ms-auto">
         
-        <button class="btn-sm btn-primary" hx-get="{% url 'edit-username' user.id %}"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn-sm btn-primary" hx-get="{% url 'edit-username' user.id %}" hx-select="#edit-username-block"><i class="fa-solid fa-pen"></i></button>
 
       </div>
     </div>
