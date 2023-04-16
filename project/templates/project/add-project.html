@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container">
+<div >
+    <div class="d-flex flex-column ">
+        <div class="mx-auto" style="width: 500px;">
     <h3 class="text-center mt-5">Add Project</h3>
     <form method="post" class="mb-5" novalidate>
         {% csrf_token %}
@@ -9,5 +11,7 @@
         <input type="submit" class="btn btn-primary"></input>
         <a href="{% url 'projects' %}" class="btn btn-danger">Cancel</a>
     </form>
+</div>
+</div>
 </div>
 {% endblock %}

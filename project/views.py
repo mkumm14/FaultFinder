@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import addProjectForm
+from .forms import ProjectForm
+
 from .models import Project
 from django.core.paginator import (
     Paginator,
@@ -20,15 +21,15 @@ def dashboard(request,pk):
     return render(request, 'project/project-view.html',{'project': project})
 
 def add_project(request):
-    form=addProjectForm()
+    form=ProjectForm(request=request)
 
     if request.method=="POST":
-        form =addProjectForm(request.POST)
+        form =ProjectForm(request.POST, request=request)
         if form.is_valid():
             form.save()
             return redirect('projects')
     else:
-        form=addProjectForm()
+        form=ProjectForm(request=request)
 
     return render(request, 'project/add-project.html',{'form':form})
 
