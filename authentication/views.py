@@ -8,9 +8,18 @@ from django.http import JsonResponse
 from crispy_forms.utils import render_crispy_form
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.views import LoginView
 
 
 # Create your views here.
+
+
+class CustomLoginView(LoginView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['authentication'] = True
+        return context
+
 
 def username(request):
     return render(request, 'user/partials/username.html')
@@ -66,7 +75,7 @@ def register_view(request):
             return redirect("login")
     else:
         form=RegisterForm()
-    return render(request,'authentication/register.html',{'form':form})
+    return render(request,'authentication/register.html',{'form':form,"authentication":True})
 
 
 

@@ -32,6 +32,18 @@
     <link href="{% static 'css/main.css/' %}" rel="stylesheet" />
 </head>
 
+
+{% if authentication %}
+
+<body  class="bg-dark">
+
+    {% block auth_content %}
+
+    {% endblock auth_content %}
+
+</body>
+{% else %}
+
 <body class="sb-nav-fixed">
     {% include 'partials/_navbar.html' %}
     <div id="layoutSidenav">
@@ -60,6 +72,11 @@
 
 
 </body>
+
+{% endif %}
+
+
+
 
 
 </html>
