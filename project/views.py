@@ -18,7 +18,7 @@ def dashboard_data(request, pk):
 
 def dashboard(request,pk):
     project= Project.objects.get(id=pk)
-    return render(request, 'project/project-view.html',{'project': project})
+    return render(request, 'project/project-view.html',{'project': project, "project_view":True})
 
 def add_project(request):
     form=ProjectForm(request=request)
