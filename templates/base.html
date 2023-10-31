@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
 
-<head >
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -35,8 +35,6 @@
 
 
     <style>
-
-
         #layoutAuthentication {
             display: flex;
             flex-direction: column;
@@ -162,6 +160,11 @@
         .sb-topnav {
             padding-left: 0;
             height: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* This will ensure everything is vertically aligned */
+
             z-index: 1039;
         }
 
@@ -334,13 +337,19 @@
             background-color: #eee;
         }
 
+
+        #project-view-link>a.nav-link:hover {
+
+            color: #f8f9fa;
+            /* This is a slightly different shade of white for contrast. You can change it to any color you prefer. */
+            text-decoration: underline;
+
+
+        }
+
         :root {
             --midBlue: #3465a4;
             --lightBlue: #3d72d7;
-        }
-
-        #tabs {
-            border-bottom: solid 3px #eee;
         }
     </style>
 </head>
