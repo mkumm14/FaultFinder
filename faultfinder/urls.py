@@ -25,8 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/main/'), name="index"),
     path('', include('authentication.urls')),
-    path('project/', include('project.urls')),
-    path('bug/', include('bug.urls')),
+    path('projects/', include('project.urls')),
+    path('', include('bug.urls')),
     path("", include('main.urls'))
 ]
 

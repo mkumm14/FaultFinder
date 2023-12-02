@@ -1,13 +1,38 @@
 
 
 
-{% if not project_view %}
 
 
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
+
+
+                
+                {% if current_path|slice:":10" == '/projects/' and current_path != '/projects/' %}
+                    
+
+                    
+                <div class="sb-sidenav-menu-heading">Core</div>
+                <a class="nav-link" href="{% url 'home' %}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                    Home
+                </a>
+
+                 <div class="sb-sidenav-menu-heading">project </div>
+
+                 <a class="nav-link" href="{% url 'dashboard' project.id %}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-message"></i></div>
+                    dashboard
+                </a>
+                
+                <a class="nav-link" href="{% url 'project-bugs'  project.id%}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-message"></i></div>
+                     bugs
+                </a>
+                {% else %}
+                
                 <div class="sb-sidenav-menu-heading">Core</div>
                 <a class="nav-link" href="{% url 'home' %}">
                     <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
@@ -21,7 +46,12 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-folder"></i></div>
                     Projects
                 </a>
-                <div class="sb-sidenav-menu-heading">Interface</div>
+
+                {% endif %}
+
+              
+
+                <!-- <div class="sb-sidenav-menu-heading">Interface</div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -82,7 +112,7 @@
                 <a class="nav-link" href="tables.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Tables
-                </a>
+                </a> -->
 
 
 
@@ -95,6 +125,4 @@
         </div>
     </nav>
 </div>
-    
-{% endif %}
     
