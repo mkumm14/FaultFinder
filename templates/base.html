@@ -8,6 +8,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{% block title %}base{% endblock %}</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/htmx.org@1.8.6"
         integrity="sha384-Bj8qm/6B+71E6FQSySofJOUjA/gq330vEqjFx9LakWybUySyI1IQHwPtbTU7bNwx"
@@ -366,7 +370,12 @@
 </body>
 {% else %}
 
+
+
+
 <body class="sb-nav-fixed">
+
+
     {% include 'partials/_navbar.html' %}
     <div id="layoutSidenav">
 
