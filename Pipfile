@@ -9,6 +9,9 @@ crispy-bootstrap5 = "*"
 pillow = "*"
 django-htmx = "*"
 django-jazzmin = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+psycopg2 = "*"
 
 [dev-packages]
 autopep8 = "*"
